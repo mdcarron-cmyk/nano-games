@@ -33,28 +33,30 @@ export default function App() {
   }, [searchQuery, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-brutal-black text-gallery-white p-4 md:p-8">
+    <div className="min-h-screen bg-navy-deep text-cool-white p-4 md:p-8 relative overflow-hidden">
+      <div className="scanline" />
+      
       {/* Header */}
-      <header className="max-w-7xl mx-auto mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <header className="max-w-7xl mx-auto mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
         <div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-6xl md:text-8xl font-display font-bold uppercase tracking-tighter leading-none mb-4"
           >
-            Void <span className="neon-text">Arcade</span>
+            Nano <span className="glow-text">Games</span>
           </motion.h1>
-          <p className="text-gallery-white/60 font-mono text-sm uppercase tracking-widest">
-            [ Unblocked & Unfiltered Gaming ]
+          <p className="text-cool-gray font-mono text-sm uppercase tracking-widest">
+            // NEURAL_LINK_ESTABLISHED //
           </p>
         </div>
 
         <div className="flex flex-col gap-4 w-full md:w-96">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gallery-white/40" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cool-gray" />
             <Input
-              placeholder="SEARCH GAMES..."
-              className="pl-10 brutal-border bg-transparent border-gallery-white focus:ring-neon-green focus:border-neon-green placeholder:text-gallery-white/20 uppercase font-mono"
+              placeholder="SEARCH_THE_VOID..."
+              className="pl-10 glass-panel bg-transparent border-white/10 focus:ring-navy-accent focus:border-navy-accent placeholder:text-cool-gray/40 uppercase font-mono"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -63,28 +65,28 @@ export default function App() {
       </header>
 
       {/* Categories */}
-      <div className="max-w-7xl mx-auto mb-8 flex flex-wrap gap-2">
+      <div className="max-w-7xl mx-auto mb-8 flex flex-wrap gap-2 relative z-10">
         <Button
           variant={selectedCategory === null ? "default" : "outline"}
           onClick={() => setSelectedCategory(null)}
-          className={`font-mono uppercase ${selectedCategory === null ? 'bg-neon-green text-brutal-black hover:bg-neon-green/90' : 'brutal-border hover:bg-gallery-white/10'}`}
+          className={`font-mono uppercase rounded-none transition-all duration-300 ${selectedCategory === null ? 'bg-navy-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'glass-panel hover:bg-white/5'}`}
         >
-          ALL_GAMES
+          [ ALL_MODULES ]
         </Button>
         {categories.map((cat) => (
           <Button
             key={cat}
             variant={selectedCategory === cat ? "default" : "outline"}
             onClick={() => setSelectedCategory(cat)}
-            className={`font-mono uppercase ${selectedCategory === cat ? 'bg-neon-green text-brutal-black hover:bg-neon-green/90' : 'brutal-border hover:bg-gallery-white/10'}`}
+            className={`font-mono uppercase rounded-none transition-all duration-300 ${selectedCategory === cat ? 'bg-navy-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'glass-panel hover:bg-white/5'}`}
           >
-            {cat}
+            [ {cat} ]
           </Button>
         ))}
       </div>
 
       {/* Game Grid */}
-      <main className="max-w-7xl mx-auto">
+      <main className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {filteredGames.map((game, index) => (
@@ -97,36 +99,36 @@ export default function App() {
                 transition={{ duration: 0.2, delay: index * 0.05 }}
               >
                 <Card 
-                  className="brutal-card h-full flex flex-col group cursor-pointer"
+                  className="futuristic-card h-full flex flex-col group cursor-pointer border-none rounded-none"
                   onClick={() => setActiveGame(game)}
                 >
-                  <div className="relative aspect-video overflow-hidden border-b-2 border-gallery-white">
+                  <div className="relative aspect-video overflow-hidden">
                     <img
                       src={game.thumbnail}
                       alt={game.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-neon-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Gamepad2 className="w-12 h-12 text-brutal-black" />
+                    <div className="absolute inset-0 bg-navy-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                      <Gamepad2 className="w-12 h-12 text-white glow-text" />
                     </div>
-                    <Badge className="absolute top-2 right-2 bg-brutal-black text-neon-green border-neon-green rounded-none font-mono">
+                    <Badge className="absolute top-2 right-2 bg-navy-deep/80 text-navy-accent border-navy-accent/50 rounded-none font-mono text-[10px]">
                       {game.category}
                     </Badge>
                   </div>
-                  <CardHeader className="p-4">
-                    <CardTitle className="text-2xl font-display uppercase tracking-tight group-hover:neon-text transition-colors">
+                  <CardHeader className="p-6">
+                    <CardTitle className="text-2xl font-display uppercase tracking-tight group-hover:glow-text transition-colors">
                       {game.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="p-4 pt-0 flex-grow">
-                    <p className="text-gallery-white/60 text-sm font-mono leading-relaxed">
+                  <CardContent className="p-6 pt-0 flex-grow">
+                    <p className="text-cool-gray text-sm font-mono leading-relaxed">
                       {game.description}
                     </p>
                   </CardContent>
-                  <CardFooter className="p-4 border-t border-gallery-white/20">
-                    <Button className="w-full bg-gallery-white text-brutal-black hover:bg-neon-green hover:text-brutal-black rounded-none font-bold uppercase transition-colors">
-                      PLAY_NOW
+                  <CardFooter className="p-6 pt-0">
+                    <Button className="w-full bg-navy-accent/20 text-navy-accent hover:bg-navy-accent hover:text-white border border-navy-accent/50 rounded-none font-bold uppercase transition-all duration-300">
+                      INITIALIZE_GAME
                     </Button>
                   </CardFooter>
                 </Card>
@@ -136,9 +138,9 @@ export default function App() {
         </div>
 
         {filteredGames.length === 0 && (
-          <div className="text-center py-20 border-2 border-dashed border-gallery-white/20">
-            <p className="text-gallery-white/40 font-mono uppercase tracking-widest">
-              NO_GAMES_FOUND_IN_THE_VOID
+          <div className="text-center py-20 glass-panel border-dashed border-white/10">
+            <p className="text-cool-gray font-mono uppercase tracking-widest">
+              // NO_DATA_FOUND_IN_SECTOR //
             </p>
           </div>
         )}
@@ -146,17 +148,17 @@ export default function App() {
 
       {/* Game Viewer Modal */}
       <Dialog open={!!activeGame} onOpenChange={(open) => !open && setActiveGame(null)}>
-        <DialogContent className="max-w-6xl h-[90vh] p-0 bg-brutal-black border-4 border-gallery-white rounded-none overflow-hidden flex flex-col">
-          <DialogHeader className="p-4 border-b-4 border-gallery-white flex flex-row items-center justify-between space-y-0">
+        <DialogContent className="max-w-6xl h-[90vh] p-0 bg-navy-deep/95 backdrop-blur-xl border border-white/10 rounded-none overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+          <DialogHeader className="p-4 border-b border-white/10 flex flex-row items-center justify-between space-y-0">
             <DialogTitle className="text-3xl font-display uppercase tracking-tighter flex items-center gap-3">
-              <Gamepad2 className="w-8 h-8 neon-text" />
+              <Gamepad2 className="w-8 h-8 glow-text" />
               {activeGame?.title}
             </DialogTitle>
             <div className="flex items-center gap-2">
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="brutal-border hover:bg-neon-green hover:text-brutal-black"
+                className="glass-panel hover:bg-navy-accent hover:text-white rounded-none"
                 onClick={() => window.open(activeGame?.iframeUrl, '_blank')}
               >
                 <Maximize2 className="w-4 h-4" />
@@ -164,7 +166,7 @@ export default function App() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="brutal-border hover:bg-red-500 hover:text-white"
+                className="glass-panel hover:bg-red-500/50 hover:text-white rounded-none"
                 onClick={() => setActiveGame(null)}
               >
                 <X className="w-4 h-4" />
@@ -182,16 +184,16 @@ export default function App() {
               />
             )}
           </div>
-          <div className="p-4 bg-brutal-black border-t-4 border-gallery-white flex items-center justify-between">
+          <div className="p-4 glass-panel border-t border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Badge className="bg-neon-green text-brutal-black rounded-none font-mono uppercase">
+              <Badge className="bg-navy-accent text-white rounded-none font-mono uppercase shadow-[0_0_10px_rgba(59,130,246,0.3)]">
                 {activeGame?.category}
               </Badge>
-              <span className="text-gallery-white/40 font-mono text-xs uppercase">
-                STATUS: RUNNING_IN_SANDBOX
+              <span className="text-cool-gray font-mono text-xs uppercase">
+                SYSTEM_STATUS: NOMINAL
               </span>
             </div>
-            <p className="text-gallery-white/60 text-sm font-mono hidden md:block">
+            <p className="text-cool-gray text-sm font-mono hidden md:block">
               {activeGame?.description}
             </p>
           </div>
@@ -199,14 +201,14 @@ export default function App() {
       </Dialog>
 
       {/* Footer */}
-      <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t-2 border-gallery-white/20 flex flex-col md:flex-row justify-between items-center gap-4 pb-8">
-        <p className="font-mono text-xs text-gallery-white/40 uppercase tracking-widest">
-          © 2026 VOID_ARCADE // BUILT_FOR_FREEDOM
+      <footer className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 pb-8 relative z-10">
+        <p className="font-mono text-xs text-cool-gray uppercase tracking-widest">
+          © 2026 NANO_GAMES // NEURAL_ARCADE_INTERFACE
         </p>
         <div className="flex gap-6">
-          <a href="#" className="font-mono text-xs text-gallery-white/40 hover:text-neon-green transition-colors uppercase">GITHUB</a>
-          <a href="#" className="font-mono text-xs text-gallery-white/40 hover:text-neon-green transition-colors uppercase">DISCORD</a>
-          <a href="#" className="font-mono text-xs text-gallery-white/40 hover:text-neon-green transition-colors uppercase">TERMS</a>
+          <a href="#" className="font-mono text-xs text-cool-gray hover:text-navy-accent transition-colors uppercase tracking-widest">NETWORK</a>
+          <a href="#" className="font-mono text-xs text-cool-gray hover:text-navy-accent transition-colors uppercase tracking-widest">UPLINK</a>
+          <a href="#" className="font-mono text-xs text-cool-gray hover:text-navy-accent transition-colors uppercase tracking-widest">PROTOCOLS</a>
         </div>
       </footer>
     </div>
