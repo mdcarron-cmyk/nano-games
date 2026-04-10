@@ -1,0 +1,74 @@
+[
+  {
+    "id": "2048",
+    "title": "2048",
+    "description": "Join the numbers and get to the 2048 tile!",
+    "thumbnail": "https://picsum.photos/seed/2048/400/300",
+    "iframeUrl": "https://play2048.co/",
+    "category": "Puzzle"
+  },
+  {
+    "id": "dino",
+    "title": "Chrome Dino",
+    "description": "The classic offline runner game.",
+    "thumbnail": "https://picsum.photos/seed/dino/400/300",
+    "iframeUrl": "https://chromedino.com/",
+    "category": "Arcade"
+  },
+  {
+    "id": "tetris",
+    "title": "Tetris",
+    "description": "The world's most popular puzzle game.",
+    "thumbnail": "https://picsum.photos/seed/tetris/400/300",
+    "iframeUrl": "https://tetris.com/play-tetris",
+    "category": "Puzzle"
+  },
+  {
+    "id": "snake",
+    "title": "Google Snake",
+    "description": "Eat the apples and grow longer.",
+    "thumbnail": "https://picsum.photos/seed/snake/400/300",
+    "iframeUrl": "https://www.google.com/logos/2010/pacman10-i.html",
+    "category": "Classic"
+  },
+  {
+    "id": "pacman",
+    "title": "Pac-Man",
+    "description": "Waka waka waka!",
+    "thumbnail": "https://picsum.photos/seed/pacman/400/300",
+    "iframeUrl": "https://macek.github.io/google_pacman/",
+    "category": "Classic"
+  },
+  {
+    "id": "flappy",
+    "title": "Flappy Bird",
+    "description": "Don't hit the pipes!",
+    "thumbnail": "https://picsum.photos/seed/flappy/400/300",
+    "iframeUrl": "https://flappybird.io/",
+    "category": "Arcade"
+  },
+  {
+    "id": "crossy",
+    "title": "Crossy Road",
+    "description": "Why did the chicken cross the road?",
+    "thumbnail": "https://picsum.photos/seed/crossy/400/300",
+    "iframeUrl": "https://poki.com/en/g/crossy-road",
+    "category": "Arcade"
+  },
+  {
+    "id": "slope",
+    "title": "Slope",
+    "description": "Roll down the slope as fast as you can.",
+    "thumbnail": "https://picsum.photos/seed/slope/400/300",
+    "iframeUrl": "https://slopegame.io/",
+    "category": "Arcade"
+  },
+  {
+    "id": "chess",
+    "title": "Chess",
+    "description": "The ultimate game of strategy.",
+    "thumbnail": "https://picsum.photos/seed/chess/400/300",
+    "iframeUrl": "https://www.chess.com/play/online",
+    "category": "Strategy"
+  }
+]
